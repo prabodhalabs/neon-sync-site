@@ -3,7 +3,7 @@ const path = require('path');
 const marked = require('marked');
 const matter = require('gray-matter');
 
-const SITE_URL = 'https://prabodhalabs.github.io/neon-sync-site';
+const SITE_URL = 'https://neon-sync.prabodhalabs.com';
 const POSTS_DIR = path.join(__dirname, '../_posts');
 const SRC_DIR = path.join(__dirname, '../src');
 const OUT_DIR = path.join(__dirname, '../_site');
@@ -54,7 +54,7 @@ let listHtml = '';
 for (const post of posts) {
     const tagsHtml = post.tags.map(t => `<span class="tag-pill ${t}">${t.replace('-', ' ')}</span>`).join('');
     listHtml += `
-    <a href="/neon-sync-site/blog/${post.slug}/" class="blog-card">
+    <a href="/blog/${post.slug}/" class="blog-card">
         <div class="blog-card-content">
             <div class="blog-meta">
                 <time datetime="${post.dateIso}">${post.dateStr}</time>
