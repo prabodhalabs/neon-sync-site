@@ -21,22 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - run: npm ci
-
-      # Build blog (md → HTML, sitemap, RSS)
-      - run: node scripts/build.js
-
-      # Encrypt admin page with StatiCrypt
-      - run: npx staticrypt _site/admin/index.html -p "${{ secrets.STATICRYPT_PASSWORD }}" -d _site/admin --remember false --template-title "Neon Sync Admin" --template-color-primary "#4ade80" --template-color-secondary "#0f172a" --template-instructions "Enter the admin password to access the CMS." --template-button "UNLOCK" --config false
-
-      # Upload build artifact for Pages
+      # Upload root directory for Pages
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: .
 
   deploy:
     needs: build
