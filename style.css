@@ -125,6 +125,11 @@ a:hover {
     background-clip: text;
     filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.5));
     line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    display: block;
 }
 
 .app-icon {
